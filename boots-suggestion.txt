@@ -1,0 +1,30 @@
+These are the suggestions presented by boots when I asked on the structure and imporvements in the final code.
+
+Strengths 🪄
+
+    Function Decomposition: You've broken your tasks into clear, discrete functions like get_book, get_word_count, and get_count_characters. This reduces repetition and makes testing each component easier.
+    Main Function: Having a main() function acts like the "master wand". It ties everything together and provides a starting point for your program. Well done!
+    Reusable Functions: Your functions are reusable, as none are too specific to just this task. For example, get_word_count() could handle any text input.
+
+Areas for Improvement ✨
+
+    Function Responsibility:
+        Some of your functions have unclear responsibility lines. For instance, convert_to_lst_dict both filters dictionary keys (isalpha()) and converts them into a list. Would it be better to separate filtering from conversion to improve clarity?
+        Similarly, get_summary should only print the summary—it could accept the book path in order to avoid the hardcoded reference to "books/frankenstein.txt" inside main().
+
+    Ask yourself: Does each function do ONE thing well? Could any function's name or body cause confusion?
+
+    Repeated Conversions:
+        You're converting from a dictionary to a sorted list; however, alternative approaches (e.g., sorting within the dictionary itself if needed) may slightly simplify the logic. Is a list absolutely necessary, or is it dictated by the task?
+
+    Handling of Hardcoded Values:
+        The book path ("books/frankenstein.txt") is hardcoded. Would your structure benefit from making the path a function argument, or perhaps configurable via sys.argv? This would make the code more flexible for future enhancements.
+
+    Error Handling:
+        What if the file at book_path doesn't exist? You might consider wrapping read_file in a try...except block to gracefully handle errors and inform the user.
+
+Structural Refinement Questions:
+
+ Could the program benefit from encapsulating related functions into a class? For instance, a ReportGenerator class might make logical sense in managing state.
+    Are there places where unnecessary intermediate variables reduce clarity? Keep your magic concise wherever possible.
+
